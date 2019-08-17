@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace NetCoreFirstApp
 {
     public class Startup
-    {
+    { 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
