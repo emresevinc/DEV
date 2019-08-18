@@ -10,6 +10,13 @@ namespace NetCoreFirstApp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IEmployeeRepository employeeRepository;
+
+        public HomeController(IEmployeeRepository employeeRepository)
+        {
+            this.employeeRepository = employeeRepository;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -38,6 +45,26 @@ namespace NetCoreFirstApp.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpGet]
+        public IActionResult CreateEmployee()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateEmployee(Employee employee)
+        {
+            employeeRepository.CreateEmployee(employee);
+            return View("Details",employee.RecordId);
+        }
+
+        [HttpGet]
+        public IActionResult Details(long employeeRecordId)
+        {
+            Employee employee = employeeRepository.GetEmployeeByRecordId(employeeRecordId);
+            return View(employee);
         }
     }
 }

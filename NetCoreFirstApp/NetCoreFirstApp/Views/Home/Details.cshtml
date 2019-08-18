@@ -1,0 +1,48 @@
+﻿@model long
+@inject IEmployeeRepository employeeOperation
+
+@{
+    var @currentEmployee = employeeOperation.GetEmployeeByRecordId(Model) as Employee;
+}
+<h2>Thanks! Employee Details</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.DisplayName(@currentEmployee.Name)
+            <div class="col-sm-10">
+                @Html.TextBox(@currentEmployee.Name, null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.DisplayName(@currentEmployee.Surname)
+            <div class="col-sm-10">
+                @Html.TextBox(@currentEmployee.Surname, null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.DisplayName(@currentEmployee.Age.ToString())
+            <div class="col-sm-10">
+                @Html.TextBox(@currentEmployee.Age.ToString(), null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.DisplayName(@currentEmployee.DepartmentRecordId.ToString())
+            <div class="col-sm-10">
+                @Html.TextBox(@currentEmployee.DepartmentRecordId.ToString(), null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.DisplayName(@currentEmployee.TittleRecordId.ToString())
+            <div class="col-sm-10">
+                @Html.TextBox(@currentEmployee.TittleRecordId.ToString(), null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.DisplayName(@currentEmployee.Salary.ToString())
+            <div class="col-sm-10">
+                @Html.TextBox(@currentEmployee.Salary.ToString(), null, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+}
