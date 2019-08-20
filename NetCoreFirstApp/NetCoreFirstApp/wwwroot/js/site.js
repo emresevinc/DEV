@@ -1,4 +1,23 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿$(document).ready(function () {
+    debugger;
+    GetDeparmentListFromCache();
+});
 
-// Write your JavaScript code.
+var GetDeparmentListFromCache = function () {
+    var dataList = null;
+    $.ajax({
+        type: 'GET',
+        url: '/Home/GetDepartmentAllCacheList',
+        dataType: 'json',
+        success: function (data) {
+            dataList = data;
+            console.log(data);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
+    if (dataList != null) {
+        console.log(dataList);
+    }
+}

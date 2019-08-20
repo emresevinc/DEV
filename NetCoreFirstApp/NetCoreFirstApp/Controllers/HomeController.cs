@@ -66,5 +66,12 @@ namespace NetCoreFirstApp.Controllers
             Employee employee = employeeRepository.GetEmployeeByRecordId(employeeRecordId);
             return View(employee);
         }
+
+        [HttpGet]
+        public IActionResult GetDepartmentAllCacheList()
+        {
+            Console.WriteLine("test department");
+            return new JsonResult("");
+        }
     }
 }
