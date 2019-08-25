@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Department.Entity\Department.Entity.csproj" />
+    <ProjectReference Include="..\Department.Operation\Department.Operation.csproj" />
+    <ProjectReference Include="..\Employee.Entity\Employee.Entity.csproj" />
+    <ProjectReference Include="..\Employee.Operation\Employee.Operation.csproj" />
+  </ItemGroup>
+
+</Project>
